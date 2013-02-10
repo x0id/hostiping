@@ -22,7 +22,7 @@ done
 
 eval $cmd
 
-if which feh 2>/dev/null; then
+if which feh 2>&1 >/dev/null; then
     feh -ZF $out
 else
     xdg-open $out
