@@ -47,7 +47,7 @@ poke() {
             # echo "removing empty file $out"
             rm -f $out
         fi
-        cat $err
+        # cat $err
     fi
 }
 
