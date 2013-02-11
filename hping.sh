@@ -37,14 +37,17 @@ poke() {
     local url=${urls[$id]}
     set -o pipefail
     if (time -p wget -O $out $url >/dev/null) |& logerr >$err; then
-        # wc -l $out; cksum $out
         if logtime $err $id; then
             rm -f $out $err
         fi
     else
         ret=$?
+        # Server issued an error response?
+        if (( $ret == 8 )); then
+            logtime $err $id
+        fi
+        # removing $out if empty
         if [[ -e $out && ! -s $out ]]; then
-            # echo "removing empty file $out"
             rm -f $out
         fi
         # cat $err
