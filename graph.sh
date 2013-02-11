@@ -6,7 +6,7 @@
 h=${1:-24}
 u=${2:-90}
 let h=h*3600
-out=hstat.png
+out=`mktemp -u --suffix=.png`
 
 cmd="rrdtool graph $out -s -$h"
 cmd="$cmd -w 1280 -h 770 -D"
@@ -27,3 +27,5 @@ if which feh 2>&1 >/dev/null; then
 else
     xdg-open $out
 fi
+
+rm -f $out
