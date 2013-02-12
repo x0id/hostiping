@@ -1,0 +1,3 @@
+This very simple script helps to gather statistics on web server(s) response time.
+It is reasonably configurable, just to allow others to use it without major modifications.
+Dependencies: bash, awk, wget and rrdtool. Tested on Fedora 16.

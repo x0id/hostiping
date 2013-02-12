@@ -36,7 +36,7 @@ poke() {
     local err="$dir/${id}_$ts.err"
     local url=${urls[$id]}
     set -o pipefail
-    if (time -p wget -O $out $url >/dev/null) |& logerr >$err; then
+    if (time -p wget $wget_opts -O $out $url >/dev/null) |& logerr >$err; then
         if logtime $err $id; then
             rm -f $out $err
         fi
