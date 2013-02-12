@@ -10,7 +10,7 @@ out=`mktemp -u --suffix=.png`
 
 cmd="rrdtool graph $out -s -$h"
 cmd="$cmd -w 1280 -h 770 -D"
-cmd="$cmd -v Seconds -u $u -r --grid-dash 1:3"
+cmd="$cmd -v Seconds -l 0 -u $u -r --grid-dash 1:3"
 cmd="$cmd HRULE:3#0000FF:'3 sec latency'"
 cmd="$cmd HRULE:30#00FF00:'30 sec latency'"
 cmd="$cmd HRULE:60#FF0000:'60 sec latency'"
